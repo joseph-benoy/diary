@@ -1,0 +1,16 @@
+form{
+    border: 5px solid #7952b3;
+    width: 40%;
+    padding: 5vh 5vw;
+    @media only screen and (max-width:1199px) {
+        width: 100%;
+    }
+}
+form button{
+    background-color: #7952b3;
+    border-color: #7952b3;
+}
+form button:hover{
+    background-color: #9678c4;
+    border-color: #9678c4;
+}
