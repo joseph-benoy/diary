@@ -1,8 +1,11 @@
-import React from 'react';
+import React,{useState} from 'react';
 import '../loginForm/Loginform.scss';
 
 
 const Registerform = ()=>{
+    let [username,setUsername] = useState();
+    let [password,setPassword] = useState();
+    let [cpassword,setCpassword] = useState();
     const togglePassword = ()=>{
         const pass = document.getElementById('password');
         const cpass = document.getElementById('cpassword');
@@ -14,6 +17,9 @@ const Registerform = ()=>{
             pass.setAttribute('type','text');
             cpass.setAttribute('type','text');
         }
+    }
+    const changeUsername = (e)=>{
+        setUsername(e.target.value);
     }
     return(
         <div className="container-fluid main ">
@@ -28,9 +34,9 @@ const Registerform = ()=>{
             </div>
             <div className="row">
                 <div className="col-auto">
-                    <label className="form-label" htmlFor="username">Username</label>
+                    <label className="form-label" htmlFor="username">Email</label>
                     <div className="input-group">
-                    <input type="text" className="form-control" id="username" placeholder="johndoe@example.com" name="username"/>
+                    <input type="text" onChange={changeUsername} className="form-control" id="username" placeholder="johndoe@example.com" name="username"/>
                     </div>
                 </div>
             </div>
