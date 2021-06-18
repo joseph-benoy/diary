@@ -1,6 +1,7 @@
 let express = require('express');
 let router = express.Router();
 let {createUser} = require('./db');
+const bcrypt = require('bcrypt');
 
 
 
@@ -17,12 +18,18 @@ router.post('/',async (req,res)=>{
         res.status(400).json({error:"password less than 8 chars"});
     }
     else{
-        let result = await createUser({fullname:fullname,username:username,password:password});
-        if(result.result.ok){
-            res.json({message:"new user created"});
+        try{
+            const hash = await bcrypt.hash(password,10);
+            let result = await createUser({fullname:fullname,username:username,password:hash});
+            if(result.result.ok){
+                res.json({message:"new user created"});
+            }
+            else{
+                res.status(400).json({message:"something went wrong",error:result});
+            }
         }
-        else{
-            res.status(400).json({message:"something went wrong",error:result});
+        catch(err){
+            console.log(error);
         }
     }
 });
