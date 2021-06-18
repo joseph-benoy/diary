@@ -61,7 +61,7 @@ const Loginform = ()=>{
             </div>
             <div className="row">
                 <div className="d-grid gap-2 col-12">
-                    <button className="btn btn-primary signin" onClick = {validateCred} type="button">Sign In</button>
+                    <button className="btn btn-primary signin" onClick ={validateCred} type="button">Sign In</button>
                 </div>
             </div>
         </form>

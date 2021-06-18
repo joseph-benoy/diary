@@ -1,7 +1,7 @@
 form{
     border: 5px solid #7952b3;
     width: 90%;
-    padding: 5vh 5vw;
+    padding: 2vh 4vw;
     text-align: left;
     @media only screen and (max-width:1199px) {
         width: 100%;
@@ -23,7 +23,7 @@ form input:not(.form-check-input){
     border-color: #9678c4;
 }
 .main{
-    padding: 3vh 30vw;
+    padding: 1vh 30vw;
     padding-left: 35vw;
     @media only screen and (max-width:1199px) {
         padding: 5vh 2vw;
