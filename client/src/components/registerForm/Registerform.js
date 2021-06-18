@@ -51,7 +51,7 @@ const Registerform = ()=>{
             {error!==""?<div className="errorBox">
                 <p>{error}</p>
             </div>:null}
-        <form className="gy-2 gx-3 align-items-center" autoComplete="off">
+        <form className="gy-2 gx-3 align-items-center" autoComplete="off" style={{border:"none"}}>
         <div className="row">
                 <div className="col-auto">
                     <label className="form-label" htmlFor="fullname">Full name</label>

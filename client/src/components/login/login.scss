@@ -1,9 +1,22 @@
 .loginHeaderLinks{
-    color: white;
-    background-color: #7952b3;
     text-decoration: none;
     padding: 2vh 5vw;
     border-radius:10px;
     margin-top: 2vh;
     display: inline-block;
+    border:2px solid #7952b3;
+    color: #7952b3;
+    background-color: white;
+}
+.loginHeaderLinks:hover{
+    color: white;
+    background-color: #7952b3;
+}
+.loginHeaderLinks:active{
+    color: white;
+    background-color: #7952b3;
+}
+.active{
+    color: white;
+    background-color: #7952b3;
 }
