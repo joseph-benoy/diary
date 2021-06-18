@@ -24,12 +24,9 @@ const Loginform = ()=>{
             if(result.status===200){
                 console.log(result);
             }
-            else{
-                console.log(result);
-            }
         }
         catch(err){
-            console.log(err);
+            setError(err.response.data.error);
         }
     }
     const validateCred = ()=>{
@@ -42,6 +39,7 @@ const Loginform = ()=>{
         else{
             setError("");
         }
+        getLoginCred();
     }
     return(
         <div className="container-fluid main " style={{paddingTop:"12vh"}}>
