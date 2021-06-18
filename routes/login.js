@@ -9,11 +9,12 @@ router.post('/',async(req,res)=>{
     }
     else{
         let result = await getUserCred(username);
+        console.log(result);
         if(result===null){
             res.status(400).json({error:"user not found"});
         }
         else{
-            let match = await bcrypt.compare(password,result.password);
+            let match = await bcrypt.compare(password,result.cred.password);
             if(match){
                 res.json({message:"logged in successfully!"});
             }
