@@ -27,7 +27,7 @@ const Registerform = ()=>{
     }
     const postUserCred = async ()=>{
         try{
-            let result = await axios.post('http://localhost:3001/register',{
+            let result = await axios.post('/registerac',{
                 fullname:fullname,
                 username:username,
                 password:password
@@ -39,7 +39,7 @@ const Registerform = ()=>{
         }
         catch(err){
             setError(err.response.error);
-            console.log(err.response.error);
+            console.log(err.response);
         }
     }
     const validateCred = ()=>{
@@ -66,8 +66,8 @@ const Registerform = ()=>{
         }
         else{
             setError("");
+            postUserCred();
         }
-        postUserCred();
     }
     return(
         <div className="container-fluid main ">
