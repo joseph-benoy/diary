@@ -1,6 +1,10 @@
 import React,{useState} from 'react';
 import '../loginForm/Loginform.scss';
 import './error.scss';
+import axios from 'axios';
+
+
+
 
 const Registerform = ()=>{
     let [username,setUsername] = useState("");
@@ -8,6 +12,7 @@ const Registerform = ()=>{
     let [cpassword,setCpassword] = useState("");
     let [fullname,setFullname] = useState("");
     let [error,setError] = useState("");
+    let [errorBoxColor,setErrorBoxColor] = useState("crimson");
     const togglePassword = ()=>{
         const pass = document.getElementById('password');
         const cpass = document.getElementById('cpassword');
@@ -18,6 +23,23 @@ const Registerform = ()=>{
         else{
             pass.setAttribute('type','text');
             cpass.setAttribute('type','text');
+        }
+    }
+    const postUserCred = async ()=>{
+        try{
+            let result = await axios.post('http://localhost:3001/register',{
+                fullname:fullname,
+                username:username,
+                password:password
+            });
+            if(result.status===200){
+                setErrorBoxColor("#8af740");
+                setError("Successfully created account! Now log on to your account");
+            }
+        }
+        catch(err){
+            setError(err.response.error);
+            console.log(err.response.error);
         }
     }
     const validateCred = ()=>{
@@ -45,10 +67,11 @@ const Registerform = ()=>{
         else{
             setError("");
         }
+        postUserCred();
     }
     return(
         <div className="container-fluid main ">
-            {error!==""?<div className="errorBox">
+            {error!==""?<div className="errorBox" style={{backgroundColor:errorBoxColor}}>
                 <p>{error}</p>
             </div>:null}
         <form className="gy-2 gx-3 align-items-center" autoComplete="off" style={{border:"none"}}>
