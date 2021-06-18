@@ -1,12 +1,12 @@
 import React,{useState} from 'react';
 import '../loginForm/Loginform.scss';
-
+import './error.scss';
 
 const Registerform = ()=>{
-    let [username,setUsername] = useState();
-    let [password,setPassword] = useState();
-    let [cpassword,setCpassword] = useState();
-    let [fullname,setFullname] = useState();
+    let [username,setUsername] = useState("");
+    let [password,setPassword] = useState("");
+    let [cpassword,setCpassword] = useState("");
+    let [fullname,setFullname] = useState("");
     let [error,setError] = useState("");
     const togglePassword = ()=>{
         const pass = document.getElementById('password');
@@ -24,8 +24,14 @@ const Registerform = ()=>{
         if(username===""){
             setError("Username can't be empty!");
         }
+        else if(!(/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i).test(username)){
+            setError("Invalid email!");
+        }
         else if(password===""){
             setError("Password can't be empty!");
+        }
+        if(password.length<8){
+            setError("Password must contain atleast 8 characters!");
         }
         else if(cpassword===""){
             setError("Confirm your password!");
@@ -36,13 +42,16 @@ const Registerform = ()=>{
         else if(cpassword!==password){
             setError("Passwords don't match!")
         }
+        else{
+            setError("");
+        }
     }
     return(
         <div className="container-fluid main ">
-            <div className="errorBox">
-
-            </div>
-        <form className="gy-2 gx-3 align-items-center">
+            {error!=""?            <div className="errorBox">
+                <p>{error}</p>
+            </div>:null}
+        <form className="gy-2 gx-3 align-items-center" autoComplete="off">
         <div className="row">
                 <div className="col-auto">
                     <label className="form-label" htmlFor="fullname">Full name</label>
@@ -87,7 +96,7 @@ const Registerform = ()=>{
             </div>
             <div className="row">
                 <div className="d-grid gap-2 col-12">
-                    <button className="btn btn-primary signin" type="button">Sign Up</button>
+                    <button onClick={validateCred} className="btn btn-primary signin" type="button">Sign Up</button>
                 </div>
             </div>
         </form>

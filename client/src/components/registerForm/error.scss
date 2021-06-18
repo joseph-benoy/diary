@@ -1,0 +1,14 @@
+.errorBox{
+    width: 85%;
+    background-color: crimson;
+    color: white;
+    padding: 1.5vh 0vw;
+    border-radius: 5px;
+    margin: 2vh;
+    font-weight: bold;
+    font-size: 1.2em;
+    padding-bottom: 0.1vh;
+    @media screen and (max-width:1199px) {
+        width: 90%;
+    }
+}
