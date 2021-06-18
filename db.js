@@ -7,7 +7,12 @@ const createUser = async (user)=>{
     }
     try{
         const db = client.db('diary');
-        let result = await db.collection('users').insertOne(user);
+        let userDoc = {
+            cred:user,
+            settings:{},
+            entries:{}
+        };
+        let result = await db.collection('users').insertOne(userDoc);
         return result;
     }
     catch(err){
