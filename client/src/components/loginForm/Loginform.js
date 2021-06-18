@@ -1,5 +1,6 @@
 import React,{useState} from 'react';
 import './Loginform.scss';
+import axios from 'axios';
 
 const Loginform = ()=>{
     let [username,setUsername] = useState("");
@@ -12,6 +13,23 @@ const Loginform = ()=>{
         }
         else{
             pass.setAttribute('type','text');
+        }
+    }
+    const getLoginCred = async ()=>{
+        try{
+            let result = await axios.post('/login',{
+               username:username,
+               password:password 
+            });
+            if(result.status===200){
+                console.log(result);
+            }
+            else{
+                console.log(result);
+            }
+        }
+        catch(err){
+            console.log(err);
         }
     }
     const validateCred = ()=>{
