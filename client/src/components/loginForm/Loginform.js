@@ -2,11 +2,16 @@ import React,{useState} from 'react';
 import './Loginform.scss';
 import axios from 'axios';
 import { useHistory } from 'react-router';
+import { useEffect } from 'react';
+import { createBrowserHistory } from "history";
+import { Link } from 'react-router-dom';
+
 const Loginform = ()=>{
     let [username,setUsername] = useState("");
     let [password,setPassword] = useState("");
     let [error,setError] = useState("");
     let history = useHistory();
+    let [loginFlag,setLoginFlag] = useState(false);
     const togglePassword = ()=>{
         const pass = document.getElementById('password');
         if(pass.getAttribute('type')==='text'){
@@ -80,6 +85,9 @@ const Loginform = ()=>{
                 <div className="d-grid gap-2 col-12">
                     <button className="btn btn-primary signin" onClick ={validateCred} type="button">Sign In</button>
                 </div>
+            </div>
+            <div className="row">
+                <Link to="/register" className="signuplink">Sign up</Link>
             </div>
         </form>
         </div>

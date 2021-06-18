@@ -17,6 +17,7 @@ form input:not(.form-check-input){
 .signin{
     background-color: #7952b3;
     border-color: #7952b3;
+    font-size: 1.2em;
 }
 .signin:hover{
     background-color: #9678c4;
@@ -39,4 +40,13 @@ form label:not(.form-check-label){
     color: #7952b3;
     font-weight:500;
     font-size: 1.2em;
+}
+.signuplink{
+    color: #7952b3;
+    text-decoration: none;
+    font-size: 1em;
+    margin-top: 2vh;
+    display: block;
+    text-align: center;
+    font-weight: bold;
 }

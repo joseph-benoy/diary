@@ -17,11 +17,11 @@ const Login = ()=>{
             loginLink.classList.remove('active');
             registerLink.classList.add('active');
         }
-    }
+    }/*
     return(
-        <>
-        <Header/>
+        <div>
         <Router>
+        <Header/>
         <Link to="/" id="loginLink" onClick={()=>toggleLoginRouter("loginLink")} className="loginHeaderLinks active" style={{borderTopRightRadius:0,borderBottomRightRadius:0}}>Log In</Link>
         <Link to="/register" id="registerLink" onClick={()=>toggleLoginRouter("registerLink")} className="loginHeaderLinks" style={{borderTopLeftRadius:0,borderBottomLeftRadius:0}}>Sign Up</Link>
         <Switch>
@@ -33,6 +33,12 @@ const Login = ()=>{
             </Route>
         </Switch>
         </Router>
+        </div>
+    );*/
+    return(
+        <>
+        <Header/>
+        <Loginform/>
         </>
     );
 }
