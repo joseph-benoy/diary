@@ -1,8 +1,11 @@
-import React from 'react';
+import React,{useState} from 'react';
 import './Loginform.scss';
 
 
 const Loginform = ()=>{
+    let [username,setUsername] = useState("");
+    let [password,setPassword] = useState("");
+    let [error,setError] = useState("");
     const togglePassword = ()=>{
         const pass = document.getElementById('password');
         if(pass.getAttribute('type')==='text'){
@@ -12,15 +15,29 @@ const Loginform = ()=>{
             pass.setAttribute('type','text');
         }
     }
+    const validateCred = ()=>{
+        if(username===""){
+            setError("Username can't be empty!");
+        }
+        else if(password===""){
+            setError("Password can't be empty!");
+        }
+        else{
+            setError("");
+        }
+    }
     return(
         <div className="container-fluid main ">
+        {error!==""?<div className="errorBox">
+                <p>{error}</p>
+            </div>:null}
         <form className="gy-2 gx-3 align-items-center">
             <div className="row">
             <div className="col-auto">
                 <label className="form-label" htmlFor="username">Username</label>
                 <div className="input-group">
                 <div className="input-group-text">@</div>
-                <input type="text" className="form-control" id="username" placeholder="johndoe@example.com" name="username"/>
+                <input type="text" onChange={(e)=>setUsername(e.target.value)} className="form-control" id="username" placeholder="johndoe@example.com" name="username"/>
                 </div>
             </div>
             </div>
@@ -29,7 +46,7 @@ const Loginform = ()=>{
                 <label className="form-label" htmlFor="password">Password</label>
                 <div className="input-group">
                 <div className="input-group-text"><i class="bi bi-shield-lock"></i></div>
-                <input type="password" className="form-control" id="password" placeholder="Password"/>
+                <input type="password" onChange={(e)=>setPassword(e.target.value)} className="form-control" id="password" placeholder="Password"/>
                 </div>
             </div>
             </div>

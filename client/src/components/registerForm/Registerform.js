@@ -48,7 +48,7 @@ const Registerform = ()=>{
     }
     return(
         <div className="container-fluid main ">
-            {error!=""?            <div className="errorBox">
+            {error!==""?<div className="errorBox">
                 <p>{error}</p>
             </div>:null}
         <form className="gy-2 gx-3 align-items-center" autoComplete="off">
