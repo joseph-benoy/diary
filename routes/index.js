@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 //routes
 let registerRouter = require('./register');
 let loginRouter = require('./login.js');
+const { validateToken } = require('../jwt');
 
 
 //express configuration
@@ -15,7 +16,9 @@ app.use(cookieParser());
 app.use('/register',registerRouter);
 app.use('/login',loginRouter);
 
-
+app.get('/dashboard',validateToken,(req,res)=>{
+    res.send("<h1>Dashboard</h1>");
+});
 
 
 
