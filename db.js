@@ -17,7 +17,7 @@ const createUser = async (user)=>{
         client.close();
     }
 }
-const getUserCred = (username)=>{
+const getUserCred = async (username)=>{
     const client = await mongoClient.connect(url,{ useNewUrlParser: true ,useUnifiedTopology: true});
     if(!client){
         return;

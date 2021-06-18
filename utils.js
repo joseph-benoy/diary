@@ -1,9 +1,0 @@
-
-
-
-
-
-
-
-
-module.exports = {sendError};
