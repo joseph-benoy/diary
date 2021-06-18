@@ -6,8 +6,8 @@ const Registerform = ()=>{
     let [username,setUsername] = useState();
     let [password,setPassword] = useState();
     let [cpassword,setCpassword] = useState();
-    let [error,setError] = useState("");
     let [fullname,setFullname] = useState();
+    let [error,setError] = useState("");
     const togglePassword = ()=>{
         const pass = document.getElementById('password');
         const cpass = document.getElementById('cpassword');
@@ -21,21 +21,27 @@ const Registerform = ()=>{
         }
     }
     const validateCred = ()=>{
-        if(username==""){
-            setError("Username can't be empty");
+        if(username===""){
+            setError("Username can't be empty!");
         }
-        else if(password==""){
-            setError("Password can't be empty");
+        else if(password===""){
+            setError("Password can't be empty!");
         }
-        else if(cpassword==""){
-            setError("Confirm your password");
+        else if(cpassword===""){
+            setError("Confirm your password!");
         }
-        else if(fullname==""){
-            setError("Full name can't be empty");
+        else if(fullname===""){
+            setError("Full name can't be empty!");
+        }
+        else if(cpassword!==password){
+            setError("Passwords don't match!")
         }
     }
     return(
         <div className="container-fluid main ">
+            <div className="errorBox">
+
+            </div>
         <form className="gy-2 gx-3 align-items-center">
         <div className="row">
                 <div className="col-auto">
