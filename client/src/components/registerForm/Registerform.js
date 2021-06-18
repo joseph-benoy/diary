@@ -6,6 +6,8 @@ const Registerform = ()=>{
     let [username,setUsername] = useState();
     let [password,setPassword] = useState();
     let [cpassword,setCpassword] = useState();
+    let [error,setError] = useState("");
+    let [fullname,setFullname] = useState();
     const togglePassword = ()=>{
         const pass = document.getElementById('password');
         const cpass = document.getElementById('cpassword');
@@ -18,8 +20,19 @@ const Registerform = ()=>{
             cpass.setAttribute('type','text');
         }
     }
-    const changeUsername = (e)=>{
-        setUsername(e.target.value);
+    const validateCred = ()=>{
+        if(username==""){
+            setError("Username can't be empty");
+        }
+        else if(password==""){
+            setError("Password can't be empty");
+        }
+        else if(cpassword==""){
+            setError("Confirm your password");
+        }
+        else if(fullname==""){
+            setError("Full name can't be empty");
+        }
     }
     return(
         <div className="container-fluid main ">
@@ -28,7 +41,7 @@ const Registerform = ()=>{
                 <div className="col-auto">
                     <label className="form-label" htmlFor="fullname">Full name</label>
                     <div className="input-group">
-                    <input type="text" className="form-control" id="fullname" placeholder="John Doe" name="fullname"/>
+                    <input type="text" className="form-control" onChange={(e)=>setFullname(e.target.value)} id="fullname" placeholder="John Doe" name="fullname"/>
                     </div>
                 </div>
             </div>
@@ -36,7 +49,7 @@ const Registerform = ()=>{
                 <div className="col-auto">
                     <label className="form-label" htmlFor="username">Email</label>
                     <div className="input-group">
-                    <input type="text" onChange={changeUsername} className="form-control" id="username" placeholder="johndoe@example.com" name="username"/>
+                    <input type="email" onChange={(e)=>setUsername(e.target.value)} className="form-control" id="username" placeholder="johndoe@example.com" name="username"/>
                     </div>
                 </div>
             </div>
@@ -44,7 +57,7 @@ const Registerform = ()=>{
                 <div className="col-auto">
                     <label className="form-label" htmlFor="password">Password</label>
                     <div className="input-group">
-                    <input type="password" className="form-control" id="password" placeholder="Password" name="password"/>
+                    <input type="password" onChange={(e)=>setPassword(e.target.value)} className="form-control" id="password" placeholder="Password" name="password"/>
                     </div>
                 </div>
             </div>
@@ -52,7 +65,7 @@ const Registerform = ()=>{
                 <div className="col-auto">
                     <label className="form-label" htmlFor="cpassword">Confirm password</label>
                     <div className="input-group">
-                    <input name="cpassword" type="password" className="form-control" id="cpassword" placeholder="Confirm password"/>
+                    <input name="cpassword" type="password" onChange={(e)=>setCpassword(e.target.value)} className="form-control" id="cpassword" placeholder="Confirm password"/>
                     </div>
                 </div>
             </div>
