@@ -17,24 +17,7 @@ const Login = ()=>{
             loginLink.classList.remove('active');
             registerLink.classList.add('active');
         }
-    }/*
-    return(
-        <div>
-        <Router>
-        <Header/>
-        <Link to="/" id="loginLink" onClick={()=>toggleLoginRouter("loginLink")} className="loginHeaderLinks active" style={{borderTopRightRadius:0,borderBottomRightRadius:0}}>Log In</Link>
-        <Link to="/register" id="registerLink" onClick={()=>toggleLoginRouter("registerLink")} className="loginHeaderLinks" style={{borderTopLeftRadius:0,borderBottomLeftRadius:0}}>Sign Up</Link>
-        <Switch>
-            <Route exact path="/">
-                <Loginform/>
-            </Route>
-            <Route path="/register">
-                <Registerform/>
-            </Route>
-        </Switch>
-        </Router>
-        </div>
-    );*/
+    }
     return(
         <>
         <Header/>

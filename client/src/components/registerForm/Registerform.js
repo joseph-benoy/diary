@@ -2,8 +2,7 @@ import React,{useState} from 'react';
 import '../loginForm/Loginform.scss';
 import './error.scss';
 import axios from 'axios';
-
-
+import Header from '../loginHeader/Header';
 
 
 const Registerform = ()=>{
@@ -70,6 +69,8 @@ const Registerform = ()=>{
         }
     }
     return(
+        <>
+        <Header/>
         <div className="container-fluid main ">
             {error!==""?<div className="errorBox" style={{backgroundColor:errorBoxColor}}>
                 <p>{error}</p>
@@ -124,6 +125,7 @@ const Registerform = ()=>{
             </div>
         </form>
         </div>
+        </>
     );
 }
 
