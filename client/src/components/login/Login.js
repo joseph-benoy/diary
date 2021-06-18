@@ -10,8 +10,8 @@ const Login = ()=>{
         <>
         <Header/>
         <Router>
-        <Link to="/" className="loginHeaderLinks">Log In</Link>
-        <Link to="/register" className="loginHeaderLinks">Sign Up</Link>
+        <Link to="/" className="loginHeaderLinks" style={{borderTopRightRadius:0,borderBottomRightRadius:0}}>Log In</Link>
+        <Link to="/register" className="loginHeaderLinks" style={{borderTopLeftRadius:0,borderBottomLeftRadius:0}}>Sign Up</Link>
         <Switch>
             <Route exact path="/">
                 <Loginform/>
