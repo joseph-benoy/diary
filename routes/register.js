@@ -1,6 +1,6 @@
 let express = require('express');
 let router = express.Router();
-let {createUser} = require('./db');
+let {createUser} = require('../db');
 const bcrypt = require('bcrypt');
 
 
