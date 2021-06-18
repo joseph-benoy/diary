@@ -9,7 +9,6 @@ router.post('/',async(req,res)=>{
     }
     else{
         let result = await getUserCred(username);
-        console.log(result);
         if(result===null){
             res.status(400).json({error:"user not found"});
         }
