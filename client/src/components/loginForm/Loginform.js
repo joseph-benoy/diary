@@ -1,11 +1,12 @@
 import React,{useState} from 'react';
 import './Loginform.scss';
 import axios from 'axios';
-
+import { useHistory } from 'react-router';
 const Loginform = ()=>{
     let [username,setUsername] = useState("");
     let [password,setPassword] = useState("");
     let [error,setError] = useState("");
+    let history = useHistory();
     const togglePassword = ()=>{
         const pass = document.getElementById('password');
         if(pass.getAttribute('type')==='text'){
@@ -22,7 +23,7 @@ const Loginform = ()=>{
                password:password 
             });
             if(result.status===200){
-                console.log(result);
+                history.push("/dashboard");
             }
         }
         catch(err){
@@ -46,7 +47,7 @@ const Loginform = ()=>{
         {error!==""?<div className="errorBox">
                 <p>{error}</p>
             </div>:null}
-        <form className="gy-2 gx-3 align-items-center" style={{border:"none"}}>
+        <form className="gy-2 gx-3 align-items-center" style={{border:"none"}} autoComplete="on">
             <div className="row">
             <div className="col-auto">
                 <label className="form-label" htmlFor="username">Username</label>
