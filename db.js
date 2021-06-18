@@ -11,7 +11,7 @@ const createUser = async (user)=>{
         return result;
     }
     catch(err){
-        console.log(err);
+        //console.log(err);
     }
     finally{
         client.close();

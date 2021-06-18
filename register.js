@@ -29,7 +29,7 @@ router.post('/',async (req,res)=>{
             }
         }
         catch(err){
-            console.log(error);
+            res.status(400).json({error:"user already exists"});
         }
     }
 });
