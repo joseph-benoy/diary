@@ -1,7 +1,6 @@
 import React,{useState} from 'react';
 import './Loginform.scss';
 
-
 const Loginform = ()=>{
     let [username,setUsername] = useState("");
     let [password,setPassword] = useState("");
@@ -27,7 +26,7 @@ const Loginform = ()=>{
         }
     }
     return(
-        <div className="container-fluid main ">
+        <div className="container-fluid main " style={{paddingTop:"12vh"}}>
         {error!==""?<div className="errorBox">
                 <p>{error}</p>
             </div>:null}
@@ -45,7 +44,7 @@ const Loginform = ()=>{
             <div className="col-auto">
                 <label className="form-label" htmlFor="password">Password</label>
                 <div className="input-group">
-                <div className="input-group-text"><i class="bi bi-shield-lock"></i></div>
+                <div className="input-group-text"><i className="bi bi-shield-lock"></i></div>
                 <input type="password" onChange={(e)=>setPassword(e.target.value)} className="form-control" id="password" placeholder="Password"/>
                 </div>
             </div>
@@ -62,7 +61,7 @@ const Loginform = ()=>{
             </div>
             <div className="row">
                 <div className="d-grid gap-2 col-12">
-                    <button className="btn btn-primary signin" type="button">Sign In</button>
+                    <button className="btn btn-primary signin" onClick = {validateCred} type="button">Sign In</button>
                 </div>
             </div>
         </form>
