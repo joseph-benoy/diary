@@ -5,11 +5,14 @@ import '../loginForm/Loginform.scss';
 const Registerform = ()=>{
     const togglePassword = ()=>{
         const pass = document.getElementById('password');
+        const cpass = document.getElementById('cpassword');
         if(pass.getAttribute('type')==='text'){
             pass.setAttribute('type','password');
+            cpass.setAttribute('type','password');
         }
         else{
             pass.setAttribute('type','text');
+            cpass.setAttribute('type','text');
         }
     }
     return(
@@ -59,7 +62,7 @@ const Registerform = ()=>{
             </div>
             <div className="row">
                 <div className="d-grid gap-2 col-12">
-                    <button className="btn btn-primary signin" type="button">Sign In</button>
+                    <button className="btn btn-primary signin" type="button">Sign Up</button>
                 </div>
             </div>
         </form>

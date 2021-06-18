@@ -16,14 +16,20 @@ form{
     border-color: #9678c4;
 }
 .main{
-    padding: 5vh 30vw;
+    padding: 3vh 30vw;
     padding-left: 35vw;
     @media only screen and (max-width:1199px) {
-        padding: 7vh 2vw;
+        padding: 5vh 2vw;
     }
 }
-form label{
+form label:not(.form-check-label){
     color: #7952b3;
     font-weight:700;
+    font-size: 1.2em;
+    margin: 1vh;
+}
+.form-check-label{
+    color: #7952b3;
+    font-weight:500;
     font-size: 1.2em;
 }
