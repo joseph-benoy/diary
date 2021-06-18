@@ -3,9 +3,8 @@ const express = require('express')
 const cookieParser = require('cookie-parser');
 
 //routes
-
 let registerRouter = require('./register');
-
+let loginRouter = require('./login.js');
 
 
 //express configuration

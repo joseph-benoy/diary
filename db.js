@@ -11,7 +11,24 @@ const createUser = async (user)=>{
         return result;
     }
     catch(err){
-        //console.log(err);
+        console.log(err);
+    }
+    finally{
+        client.close();
+    }
+}
+const getUserCred = (username)=>{
+    const client = await mongoClient.connect(url,{ useNewUrlParser: true ,useUnifiedTopology: true});
+    if(!client){
+        return;
+    }
+    try{
+        const db = client.db('diary');
+        let result = await db.collection('users').findOne({username:username});
+        return result;
+    }
+    catch(err){
+        console.log(err);
     }
     finally{
         client.close();
@@ -19,4 +36,7 @@ const createUser = async (user)=>{
 }
 
 
-module.exports = {createUser};
+
+
+
+module.exports = {createUser,getUserCred};
