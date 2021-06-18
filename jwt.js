@@ -3,12 +3,7 @@ const secret = "hello";
 
 
 const createToken = (payload)=>{
-    sign(payload,secret,(err,token)=>{
-        if(err){
-            return err;
-        }
-        return token;
-    });
+    return sign(payload,secret);
 }
 
 
