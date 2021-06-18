@@ -17,9 +17,9 @@ const Registerform = ()=>{
         <form className="gy-2 gx-3 align-items-center">
         <div className="row">
                 <div className="col-auto">
-                    <label className="form-label" htmlFor="username">Username</label>
+                    <label className="form-label" htmlFor="fullname">Full name</label>
                     <div className="input-group">
-                    <input type="text" className="form-control" id="username" placeholder="johndoe@example.com" name="username"/>
+                    <input type="text" className="form-control" id="fullname" placeholder="John Doe" name="fullname"/>
                     </div>
                 </div>
             </div>
@@ -41,7 +41,7 @@ const Registerform = ()=>{
             </div>
             <div className="row">
                 <div className="col-auto">
-                    <label className="form-label" htmlFor="cpassword">Password</label>
+                    <label className="form-label" htmlFor="cpassword">Confirm password</label>
                     <div className="input-group">
                     <input name="cpassword" type="password" className="form-control" id="cpassword" placeholder="Confirm password"/>
                     </div>
