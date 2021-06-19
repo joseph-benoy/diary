@@ -15,16 +15,21 @@
     display: block;
     text-align: center;
 }
+.logoLink:hover{
+    color: white;
+    text-decoration: none;
+}
 .navlinks{
     margin-top: 5vh;
     padding: 0;
 }
 .navlinks a{
     color: white;
-    margin-top: 5vh;
+    margin-top: 2vh;
     display: block;
     text-align: center;
-    font-size: 1.7em;
+    font-size: 1.6em;
+    padding: 2vh 0vw;
 }
 .navlinks a:hover{
     color: #7952b3;
