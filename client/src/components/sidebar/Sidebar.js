@@ -1,10 +1,9 @@
 import { Link, useParams } from 'react-router-dom';
 import './Sidebar.scss';
-import { useState,useEffect } from 'react';
+import {useEffect } from 'react';
 
 
 const Sidebar = ()=>{
-    const [active,setActive] = useState();
     const {page} = useParams();
     useEffect(()=>{
         document.getElementById(page).style = "color:#7952b3;background-color:white";
