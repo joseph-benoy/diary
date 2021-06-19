@@ -2,7 +2,7 @@ import React, { useState,useMemo } from "react";
 import ReactQuill, { Quill } from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import './Createentry.scss';
-
+import DiaryHeader from "../diaryHeader/DiaryHeader";
 
 const CreateEntry = ()=>{
     const selectLocalImage = ()=>{
@@ -46,7 +46,7 @@ const CreateEntry = ()=>{
 
     return(
         <div className="container-fluid">
-            <div className="row">
+            <div className="row topbar">
                 <div className="col-lg-3">
                     <h2>Today's entry</h2>
                 </div>
@@ -57,7 +57,10 @@ const CreateEntry = ()=>{
                     <button className="saveBtn">Save</button>
                 </div>
             </div>
-            <div className="row">
+            <div className="row" style={{marginBottom:"2vh"}}>
+                <DiaryHeader/>
+            </div>
+            <div className="row" style={{height:"60vh"}}>
                 <ReactQuill placeholder="Enter something...." theme="snow" value={value}   modules={modules} onChange={setValue}/>
             </div>
         </div>
