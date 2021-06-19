@@ -7,8 +7,9 @@
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
     padding-top: 5vh;
     width: 5%;
+    overflow: hidden;
 }
-.sidebar a{
+.logoLink{
     color: white;
     font-size: 2vw;
     display: block;
@@ -16,18 +17,17 @@
 }
 .navlinks{
     margin-top: 5vh;
+    padding: 0;
 }
 .navlinks a{
     color: white;
     margin-top: 5vh;
     display: block;
     text-align: center;
+    font-size: 1.7em;
 }
 .navlinks a:hover{
     color: #7952b3;
-    margin-top: 5vh;
-    display: block;
     background-color: white;
-//    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
 }
 

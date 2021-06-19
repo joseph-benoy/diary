@@ -1,4 +1,3 @@
-import React from 'react';
 import Sidebar from '../sidebar/Sidebar';
 import './Dashboard.scss';
 import {Route} from 'react-router-dom';
