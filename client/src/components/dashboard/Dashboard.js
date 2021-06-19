@@ -1,7 +1,7 @@
 import React from 'react';
 import Sidebar from '../sidebar/Sidebar';
 import './Dashboard.scss';
-import {BrowserRouter as Router,Switch,Route,useRouteMatch,Link,useParams} from 'react-router-dom';
+import {Route} from 'react-router-dom';
 import Settings from '../settings/Settings';
 import CreateEntry from '../createEntry/Createentry';
 import Read from '../read/Read';

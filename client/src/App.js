@@ -3,10 +3,7 @@ import Loginform from './components/loginForm/Loginform';
 import {BrowserRouter as Router,Switch,Route} from 'react-router-dom';
 import Dashboard from './components/dashboard/Dashboard';
 import Registerform from './components/registerForm/Registerform';
-import Settings from './components/settings/Settings'
-import CreateEntry from './components/createEntry/Createentry';
-import Read from './components/read/Read';
-import Memories from './components/memories/Memories';
+
 
 
 
