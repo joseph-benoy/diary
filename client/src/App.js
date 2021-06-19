@@ -1,5 +1,5 @@
 import './App.css';
-import LoginPage from './components/login/Login';
+import Loginform from './components/loginForm/Loginform';
 import {BrowserRouter as Router,Switch,Route,Link} from 'react-router-dom';
 import Dashboard from './components/dashboard/Dashboard';
 import Registerform from './components/registerForm/Registerform';
@@ -11,7 +11,7 @@ function App() {
           <Router>
             <Switch>
                 <Route exact path="/">
-                  <LoginPage/>
+                  <Loginform/>
                 </Route>
                 <Route exact path="/dashboard">
                   <Dashboard/>

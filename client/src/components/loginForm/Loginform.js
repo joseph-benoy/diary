@@ -5,6 +5,8 @@ import { useHistory } from 'react-router';
 import { useEffect } from 'react';
 import { createBrowserHistory } from "history";
 import { Link } from 'react-router-dom';
+import Header from '../loginHeader/Header';
+
 
 const Loginform = ()=>{
     let [username,setUsername] = useState("");
@@ -48,6 +50,8 @@ const Loginform = ()=>{
         getLoginCred();
     }
     return(
+        <>
+        <Header/>
         <div className="container-fluid main " style={{paddingTop:"12vh"}}>
         {error!==""?<div className="errorBox">
                 <p>{error}</p>
@@ -91,6 +95,7 @@ const Loginform = ()=>{
             </div>
         </form>
         </div>
+        </>
     );
 }
 
