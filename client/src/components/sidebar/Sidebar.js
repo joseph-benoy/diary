@@ -9,8 +9,6 @@ import Home from '../home/Home';
 
 const Sidebar = ()=>{
     return(
-        <div className="row">
-        <Router>
         <div className="col-lg-1 sidebar">
             <div className="row">
                 <Link to="/dashboard/home" className="logoLink"><i className="bi bi-journal-text"></i></Link>
@@ -22,27 +20,6 @@ const Sidebar = ()=>{
                 <Link to="/dashboard/memories"><i className="bi bi-bookmark-heart"></i></Link>
                 <Link to="/dashboard/settings" id="settingsLink"><i className="bi bi-gear"></i></Link>
             </div>
-        </div>
-        <div className="col-lg-11">
-        <Switch>
-                <Route path="/dashboard/home">
-                    <Home/>
-                </Route>
-                <Route path="/dashboard/createentry">
-                    <CreateEntry/>
-                </Route>
-                <Route path="/dashboard/read">
-                    <Read/>
-                </Route>
-                <Route path="/dashboard/memories">
-                    <Memories/>
-                </Route>
-                <Route  path="/dashboard/settings">
-                    <Settings/>
-                </Route>
-            </Switch>
-            </div>
-        </Router>
         </div>
     );
 }

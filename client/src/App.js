@@ -33,26 +33,11 @@ function App() {
                 <Route exact path="/">
                   <Loginform/>
                 </Route>
-                <Route exact path="/dashboard/home">
-                  <Dashboard/>
-                </Route>
                 <Route exact path="/register">
                   <Registerform/>
                 </Route>
-                <Route path="/dashboard/home">
+                <Route path="/dashboard/:page">
                   <Dashboard/>
-                </Route>
-                <Route path="/dashboard/createentry">
-                <Dashboard/>
-                </Route>
-                <Route path="/dashboard/read">
-                <Dashboard/>
-                </Route>
-                <Route path="/dashboard/memories">
-                <Dashboard/>
-                </Route>
-                <Route  path="/dashboard/settings">
-                <Dashboard/>
                 </Route>
             </Switch>
           </Router>

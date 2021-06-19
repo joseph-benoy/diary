@@ -1,18 +1,38 @@
 import React from 'react';
 import Sidebar from '../sidebar/Sidebar';
 import './Dashboard.scss';
-import {BrowserRouter as Router,Switch,Route,useRouteMatch,Link} from 'react-router-dom';
+import {BrowserRouter as Router,Switch,Route,useRouteMatch,Link,useParams} from 'react-router-dom';
 import Settings from '../settings/Settings';
 import CreateEntry from '../createEntry/Createentry';
 import Read from '../read/Read';
 import Memories from '../memories/Memories';
 import Home from '../home/Home';
 
+
+
 const Dashboard = ()=>{
-    const path = useRouteMatch();
     return (
         <div className="container-fluid">
-            <Sidebar/>
+            <div className="row">
+                <Sidebar/>
+                <div className="col-lg-11">
+                    <Route path="/dashboard/home">
+                        <Home/>
+                    </Route>
+                    <Route path="/dashboard/createentry">
+                        <CreateEntry/>
+                    </Route>
+                    <Route path="/dashboard/read">
+                        <Read/>
+                    </Route>
+                    <Route path="/dashboard/memories">
+                        <Memories/>
+                    </Route>
+                    <Route path="/dashboard/settings">
+                        <Settings/>
+                    </Route>
+                </div>
+            </div>
         </div>
     );
 }
