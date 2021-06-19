@@ -27,7 +27,7 @@ const Loginform = ()=>{
                password:password 
             });
             if(result.status===200){
-                history.push("/dashboard");
+                history.push("/dashboard/home");
             }
         }
         catch(err){

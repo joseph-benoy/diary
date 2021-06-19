@@ -13,7 +13,7 @@ function App() {
                 <Route exact path="/">
                   <Loginform/>
                 </Route>
-                <Route exact path="/dashboard">
+                <Route exact path="/dashboard/home">
                   <Dashboard/>
                 </Route>
                 <Route exact path="/register">
