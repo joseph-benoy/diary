@@ -1,7 +1,7 @@
-import React, { useState,useMemo, createElement } from "react";
-import ReactQuill from 'react-quill';
+import React, { useState,useMemo } from "react";
+import ReactQuill, { Quill } from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-
+import './Createentry.scss';
 
 
 const CreateEntry = ()=>{
@@ -10,8 +10,24 @@ const CreateEntry = ()=>{
         input.setAttribute('type','file');
         input.click();
         input.onchange = async ()=>{
-            
+            const file = input.files[0];
+            if(/^image\//.test(file.type)){
+                let result = await saveToServer(file);
+                console.log(result);
+            }
+            else{
+                console.log("Only images!");
+            }
         }
+    }
+    const insertToEditor = (url)=>{
+        const range = ReactQuill.getSelection();
+        ReactQuill.insertEmbed(range.index, "image", url);
+    }
+    const saveToServer = (file)=>{
+        return new Promise((resolve,reject)=>{
+            resolve("Saved to server");
+        });
     }
     const modules = useMemo(() => ({
         toolbar: {
@@ -33,6 +49,12 @@ const CreateEntry = ()=>{
             <div className="row">
                 <div className="col-lg-3">
                     <h2>Today's entry</h2>
+                </div>
+                <div className="col-lg-7">
+                    <input type="text" className="form-control" placeholder="Title"/>
+                </div>
+                <div className="col-1">
+                    <button className="saveBtn">Save</button>
                 </div>
             </div>
             <div className="row">

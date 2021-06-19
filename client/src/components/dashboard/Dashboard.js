@@ -14,7 +14,7 @@ const Dashboard = ()=>{
         <div className="container-fluid">
             <div className="row">
                 <Sidebar/>
-                <div className="col-lg-11">
+                <div className="col-lg-11 tabContainer">
                     <Route path="/dashboard/home">
                         <Home/>
                     </Route>
