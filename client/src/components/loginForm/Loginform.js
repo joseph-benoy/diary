@@ -2,8 +2,6 @@ import React,{useState} from 'react';
 import './Loginform.scss';
 import axios from 'axios';
 import { useHistory } from 'react-router';
-import { useEffect } from 'react';
-import { createBrowserHistory } from "history";
 import { Link } from 'react-router-dom';
 import Header from '../loginHeader/Header';
 
@@ -13,7 +11,6 @@ const Loginform = ()=>{
     let [password,setPassword] = useState("");
     let [error,setError] = useState("");
     let history = useHistory();
-    let [loginFlag,setLoginFlag] = useState(false);
     const togglePassword = ()=>{
         const pass = document.getElementById('password');
         if(pass.getAttribute('type')==='text'){
