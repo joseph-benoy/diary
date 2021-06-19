@@ -1,9 +1,11 @@
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams} from 'react-router-dom';
 import './Sidebar.scss';
 import {useEffect } from 'react';
+import { useHistory } from 'react-router';
 
 
 const Sidebar = ()=>{
+    const history = useHistory();
     const {page} = useParams();
     useEffect(()=>{
         document.getElementById(page).style = "color:#7952b3;background-color:white";
@@ -14,6 +16,9 @@ const Sidebar = ()=>{
             }
         }
     });
+    const logout = ()=>{
+        history.push("/");
+    }
     return(
         <div className="col-lg-1 sidebar">
             <div className="container-fluid" style={{padding:0}}>
@@ -26,7 +31,7 @@ const Sidebar = ()=>{
                     <Link to="/dashboard/read" id="read"><i className="bi bi-book"></i></Link>
                     <Link to="/dashboard/memories" id="memories"><i className="bi bi-bookmark-heart"></i></Link>
                     <Link to="/dashboard/settings" id="settings"><i className="bi bi-gear"></i></Link>
-                    <Link to="/"><i className="bi bi-box-arrow-left"></i></Link>
+                    <Link to="" onClick={logout}><i className="bi bi-box-arrow-left"></i></Link>
                 </div>
             </div>
         </div>
