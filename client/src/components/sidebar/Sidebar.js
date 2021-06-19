@@ -18,7 +18,8 @@ const Sidebar = ()=>{
                 <Link to="/dashboard/createentry"><i className="bi bi-file-earmark-plus"></i></Link>
                 <Link to="/dashboard/read"><i className="bi bi-book"></i></Link>
                 <Link to="/dashboard/memories"><i className="bi bi-bookmark-heart"></i></Link>
-                <Link to="/dashboard/settings" id="settingsLink"><i className="bi bi-gear"></i></Link>
+                <Link to="/dashboard/settings"><i className="bi bi-gear"></i></Link>
+                <Link to="/"><i className="bi bi-box-arrow-left"></i></Link>
             </div>
         </div>
     );
