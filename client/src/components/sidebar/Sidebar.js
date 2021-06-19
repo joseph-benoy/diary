@@ -1,19 +1,48 @@
 import { Link } from 'react-router-dom';
 import './Sidebar.scss';
+import {BrowserRouter as Router,Switch,Route,useRouteMatch} from 'react-router-dom';
+import Settings from '../settings/Settings';
+import CreateEntry from '../createEntry/Createentry';
+import Read from '../read/Read';
+import Memories from '../memories/Memories';
+import Home from '../home/Home';
 
 const Sidebar = ()=>{
     return(
+        <div className="row">
+        <Router>
         <div className="col-lg-1 sidebar">
             <div className="row">
                 <Link to="/dashboard/home" className="logoLink"><i className="bi bi-journal-text"></i></Link>
             </div>
             <div className="row navlinks">
                 <Link to="/dashboard/home"><i className="bi bi-house-door"></i></Link>
-                <Link to="/createEntry"><i className="bi bi-file-earmark-plus"></i></Link>
-                <Link to="/read"><i className="bi bi-book"></i></Link>
-                <Link to="/memories"><i className="bi bi-bookmark-heart"></i></Link>
-                <Link to="/settings" id="settingsLink"><i className="bi bi-gear"></i></Link>
+                <Link to="/dashboard/createentry"><i className="bi bi-file-earmark-plus"></i></Link>
+                <Link to="/dashboard/read"><i className="bi bi-book"></i></Link>
+                <Link to="/dashboard/memories"><i className="bi bi-bookmark-heart"></i></Link>
+                <Link to="/dashboard/settings" id="settingsLink"><i className="bi bi-gear"></i></Link>
             </div>
+        </div>
+        <div className="col-lg-11">
+        <Switch>
+                <Route path="/dashboard/home">
+                    <Home/>
+                </Route>
+                <Route path="/dashboard/createentry">
+                    <CreateEntry/>
+                </Route>
+                <Route path="/dashboard/read">
+                    <Read/>
+                </Route>
+                <Route path="/dashboard/memories">
+                    <Memories/>
+                </Route>
+                <Route  path="/dashboard/settings">
+                    <Settings/>
+                </Route>
+            </Switch>
+            </div>
+        </Router>
         </div>
     );
 }
