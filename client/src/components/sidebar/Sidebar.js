@@ -6,9 +6,9 @@ import { useState,useEffect } from 'react';
 const Sidebar = ()=>{
     const [active,setActive] = useState();
     const {page} = useParams();
-    console.log(page);
     useEffect(()=>{
         document.getElementById(page).style = "color:#7952b3;background-color:white";
+        return ()=>{document.getElementById(page).style = "color:white;background-color:#7952b3";}
     });
     return(
         <div className="col-lg-1 sidebar">
