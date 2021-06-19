@@ -60,7 +60,7 @@ const CreateEntry = ()=>{
             <div className="row" style={{marginBottom:"2vh"}}>
                 <DiaryHeader/>
             </div>
-            <div className="row" style={{height:"60vh"}}>
+            <div className="row" style={{maxHeight:"50vh"}}>
                 <ReactQuill placeholder="Enter something...." theme="snow" value={value}   modules={modules} onChange={setValue}/>
             </div>
         </div>
