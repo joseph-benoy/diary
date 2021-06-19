@@ -20,7 +20,7 @@ const Sidebar = ()=>{
         history.push("/");
     }
     return(
-        <div className="col-lg-1 sidebar">
+        <div className="col-lg-1 sidebar" style={{position:"fixed",top:"0vh",zIndex:500}}>
             <div className="container-fluid" style={{padding:0}}>
                 <div className="row">
                     <Link to="/dashboard/home" className="logoLink"><i className="bi bi-journal-text"></i></Link>
