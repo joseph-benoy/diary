@@ -6,6 +6,9 @@ const cookieParser = require('cookie-parser');
 let registerRouter = require('./register');
 let loginRouter = require('./login.js');
 const { validateToken } = require('../jwt');
+let addEntryImg = require('./addEntryImg');
+
+
 
 
 //express configuration
@@ -15,6 +18,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use('/registerac',registerRouter);
 app.use('/login',loginRouter);
+app.use('/addEntryImg',addEntryImg);
+
+
+
+
+
 
 app.get('/dashboard',validateToken,(req,res)=>{
     res.send("<h1>Dashboard</h1>");
@@ -23,9 +32,14 @@ app.get('/dashboard',validateToken,(req,res)=>{
 
 
 app.get("/",(req,res)=>{
-    res.send("Hello world!");
+    res.send({message:"Diary Base endpoint"});
 });
 
+app.get('/uploads/:filename',validateToken,(req,res)=>{
+    app.use("/uploads/:filename",express.static(`./../uploads/${req.username}`));
+    const filename = req.params.filename;
+    res.sendFile(filename,{root:`./uploads/${req.username}`});
+});
 
 
 
