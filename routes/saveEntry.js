@@ -23,6 +23,7 @@ router.post("/",validateToken,async (req,res)=>{
                 date:req.body.date
             };
             let result = await saveEntry(req.username,data);
+            res.json(result);
         }
         catch(err){
             console.error(err);
@@ -30,3 +31,6 @@ router.post("/",validateToken,async (req,res)=>{
 
     }
 });
+
+
+module.exports = router;

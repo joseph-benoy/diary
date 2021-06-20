@@ -10,7 +10,7 @@ let registerRouter = require('./register');
 let loginRouter = require('./login.js');
 const { validateToken } = require('../jwt');
 let addEntryImg = require('./addEntryImg');
-
+let saveEntryRouter = require('./saveEntry');
 
 
 
@@ -22,7 +22,7 @@ app.use(cookieParser());
 app.use('/registerac',registerRouter);
 app.use('/login',loginRouter);
 app.use('/addEntryImg',addEntryImg);
-
+app.use('/saveentry',saveEntryRouter);
 
 
 
