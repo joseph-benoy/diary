@@ -60,7 +60,7 @@ const CreateEntry = ()=>{
         }
       }), []);
     const [value, setValue] = useState('');
-    const saveEntry = ()=>{
+    const saveEntry = async ()=>{
         if(title===""){
             let element = document.getElementById('title');
             element.style = "border-color:crimson";
@@ -71,11 +71,12 @@ const CreateEntry = ()=>{
             element.style = "border-color:#ced4da";
             element.setAttribute('placeholder','Title');
             try{
-                axios.post("/saveEntry",{
+                let result = await axios.post("/saveentry",{
                     title:title,
                     data:value,
                     date:Date.now()
                 });
+                console.log(result.data);
             }
             catch(err){
                 console.error(err);

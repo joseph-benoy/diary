@@ -48,7 +48,9 @@ app.get('/dashboard/uploads/:filename',validateToken,(req,res)=>{
         res.status(400).json({error:"file not found"});
     }
 });
-
+app.post('/saveentry',(req,res)=>{
+    res.json(req.body);
+});
 
 
 
@@ -76,4 +78,7 @@ app.all("*",(req,res)=>{
         error:"Invalid request"
     });
 });
-app.listen(3001);
+app.listen(3001,()=>{
+    console.clear();
+    console.log("Server started");
+});
