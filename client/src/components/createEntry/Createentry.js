@@ -12,6 +12,7 @@ var quillObj = {};
 
 
 const CreateEntry = ()=>{
+    const [title,setTitle] = useState('');
     const selectLocalImage = ()=>{
         let input = document.createElement("input");
         input.setAttribute('type','file');
@@ -43,6 +44,8 @@ const CreateEntry = ()=>{
             console.error(err);
         }
     }
+
+
     const modules = useMemo(() => ({
         toolbar: {
           container: [
@@ -57,7 +60,28 @@ const CreateEntry = ()=>{
         }
       }), []);
     const [value, setValue] = useState('');
-
+    const saveEntry = ()=>{
+        if(title===""){
+            let element = document.getElementById('title');
+            element.style = "border-color:crimson";
+            element.setAttribute('placeholder','Enter a title...');
+        }
+        else{
+            let element = document.getElementById('title');
+            element.style = "border-color:#ced4da";
+            element.setAttribute('placeholder','Title');
+            try{
+                axios.post("/saveEntry",{
+                    title:title,
+                    data:value,
+                    date:Date.now()
+                });
+            }
+            catch(err){
+                console.error(err);
+            }
+        }
+    }
     return(
         <div className="container-fluid">
             <div className="row topbar">
@@ -65,10 +89,10 @@ const CreateEntry = ()=>{
                     <h2>Today's entry</h2>
                 </div>
                 <div className="col-lg-7">
-                    <input type="text" className="form-control" placeholder="Title"/>
+                    <input type="text" id="title" onChange={(e)=>{setTitle(e.target.value)}} className="form-control" placeholder="Title"/>
                 </div>
                 <div className="col-1">
-                    <button className="saveBtn">Save</button>
+                    <button className="saveBtn" onClick={saveEntry}>Save</button>
                 </div>
             </div>
             <div className="row" style={{marginBottom:"2vh"}}>
