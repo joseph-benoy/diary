@@ -23,7 +23,6 @@ const CreateEntry = ()=>{
             formData.append('img',file);
             if(/^image\//.test(file.type)){
                 let result = await saveToServer(formData);
-                console.log(result);
                 insertToEditor(result.data.url);
             }
             else{
@@ -41,7 +40,7 @@ const CreateEntry = ()=>{
             return result;
         }
         catch(err){
-            console.log(err);
+            console.error(err);
         }
     }
     const modules = useMemo(() => ({
