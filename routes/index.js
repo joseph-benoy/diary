@@ -1,6 +1,9 @@
 //modules
 const express = require('express')
 const cookieParser = require('cookie-parser');
+const fs = require('fs');
+
+
 
 //routes
 let registerRouter = require('./register');
@@ -38,7 +41,12 @@ app.get("/",(req,res)=>{
 app.get('/uploads/:filename',validateToken,(req,res)=>{
     app.use("/uploads/:filename",express.static(`./../uploads/${req.username}`));
     const filename = req.params.filename;
-    res.sendFile(filename,{root:`./uploads/${req.username}`});
+    if(fs.existsSync(`./uploads/${req.username}/${filename}`)){
+        res.sendFile(filename,{root:`./uploads/${req.username}`});
+    }
+    else{
+        res.status(400).json({error:"file not found"});
+    }
 });
 
 
