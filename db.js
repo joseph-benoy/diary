@@ -55,7 +55,7 @@ const saveEntry = async (username,data)=>{
         return result;
     }
     catch(err){
-        console.error(err);
+        return err;
     }
     finally{
         client.close();

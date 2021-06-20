@@ -23,10 +23,15 @@ router.post("/",validateToken,async (req,res)=>{
                 date:req.body.date
             };
             let result = await saveEntry(req.username,data);
-            res.json(result);
+            if(result.result.ok===1){
+                res.json({message:"Saved entry"});
+            }
+            else{
+                res.json({error:"Failed to save"});
+            }
         }
         catch(err){
-            console.error(err);
+            res.json({error:"Failed to save"});
         }
 
     }
