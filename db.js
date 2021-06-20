@@ -40,8 +40,28 @@ const getUserCred = async (username)=>{
     }
 }
 
+const saveEntry = async (username,data)=>{
+    const client = await mongoClient.connect(url,{ useNewUrlParser: true ,useUnifiedTopology: true});
+    if(!client){
+        return;
+    }
+    try{
+        const db = client.db('diary');
+        let result = await db.collection('users').updateOne({"cred.username":username},
+            {$push:{
+                "entries":data
+            }}
+        );
+        return result;
+    }
+    catch(err){
+        console.error(err);
+    }
+    finally{
+        client.close();
+    }
+}
 
 
 
-
-module.exports = {createUser,getUserCred};
+module.exports = {createUser,getUserCred,saveEntry};

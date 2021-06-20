@@ -48,9 +48,7 @@ app.get('/dashboard/uploads/:filename',validateToken,(req,res)=>{
         res.status(400).json({error:"file not found"});
     }
 });
-app.post('/saveentry',(req,res)=>{
-    res.json(req.body);
-});
+
 
 
 
