@@ -3,31 +3,46 @@ import ReactQuill, { Quill } from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import './Createentry.scss';
 import DiaryHeader from "../diaryHeader/DiaryHeader";
+import axios from 'axios';
+
+var quillObj = {};
+
+
+
+
 
 const CreateEntry = ()=>{
     const selectLocalImage = ()=>{
         let input = document.createElement("input");
         input.setAttribute('type','file');
+        input.setAttribute('accept','image/*');
         input.click();
         input.onchange = async ()=>{
             const file = input.files[0];
+            let formData = new FormData();
+            formData.append('img',file);
             if(/^image\//.test(file.type)){
-                let result = await saveToServer(file);
+                let result = await saveToServer(formData);
                 console.log(result);
+                insertToEditor(result.data.url);
             }
             else{
-                console.log("Only images!");
+                console.error("Only images!");
             }
         }
     }
     const insertToEditor = (url)=>{
-        const range = ReactQuill.getSelection();
-        ReactQuill.insertEmbed(range.index, "image", url);
+        const range = quillObj.getEditorSelection();
+        quillObj.getEditor().insertEmbed(range.index, "image", url);
     }
-    const saveToServer = (file)=>{
-        return new Promise((resolve,reject)=>{
-            resolve("Saved to server");
-        });
+    const saveToServer = async (data)=>{
+        try{
+            let result = axios.post('/addEntryImg',data);
+            return result;
+        }
+        catch(err){
+            console.log(err);
+        }
     }
     const modules = useMemo(() => ({
         toolbar: {
@@ -61,7 +76,7 @@ const CreateEntry = ()=>{
                 <DiaryHeader/>
             </div>
             <div className="row" style={{maxHeight:"50vh"}}>
-                <ReactQuill placeholder="Enter something...." theme="snow" value={value}   modules={modules} onChange={setValue}/>
+                <ReactQuill  ref={(el)=>{quillObj=el}}  placeholder="Enter something...." theme="snow" value={value}   modules={modules} onChange={setValue}/>
             </div>
         </div>
     );

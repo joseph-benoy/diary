@@ -38,8 +38,8 @@ app.get("/",(req,res)=>{
     res.send({message:"Diary Base endpoint"});
 });
 
-app.get('/uploads/:filename',validateToken,(req,res)=>{
-    app.use("/uploads/:filename",express.static(`./../uploads/${req.id}`));
+app.get('/dashboard/uploads/:filename',validateToken,(req,res)=>{
+    app.use("/dashboard/uploads/:filename",express.static(`./../uploads/${req.id}`));
     const filename = req.params.filename;
     if(fs.existsSync(`./uploads/${req.id}/${filename}`)){
         res.sendFile(filename,{root:`./uploads/${req.id}`});
