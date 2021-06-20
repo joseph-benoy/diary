@@ -19,7 +19,7 @@ var storage = multer.diskStorage({
 var upload = multer({storage:storage});
 
 router.post("/",validateToken,upload.single('img'),(req,res)=>{
-    res.json({message:"Image uploaded",url:req.file.path});
+    res.json({message:"Image uploaded",url:`uploads/${req.file.filename}`});
 });
 
 
