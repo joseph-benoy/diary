@@ -16,7 +16,7 @@ router.post('/',async(req,res)=>{
         else{
             let match = await bcrypt.compare(password,result.cred.password);
             if(match){
-                const accessToken = createToken({username:username});
+                const accessToken = createToken({id:result._id,username:username});
                 res.cookie('access-token',accessToken,{
                     maxAge:new Date(253402300000000),
                     httpOnly:true

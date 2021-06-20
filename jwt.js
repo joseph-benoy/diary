@@ -17,6 +17,7 @@ const validateToken = (req,res,next)=>{
             if(payload){
                 req.authenticated = true;
                 req.username = payload.username;
+                req.id = payload.id;
                 return next();
             }
         }

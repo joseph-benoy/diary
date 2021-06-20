@@ -39,10 +39,10 @@ app.get("/",(req,res)=>{
 });
 
 app.get('/uploads/:filename',validateToken,(req,res)=>{
-    app.use("/uploads/:filename",express.static(`./../uploads/${req.username}`));
+    app.use("/uploads/:filename",express.static(`./../uploads/${req.id}`));
     const filename = req.params.filename;
-    if(fs.existsSync(`./uploads/${req.username}/${filename}`)){
-        res.sendFile(filename,{root:`./uploads/${req.username}`});
+    if(fs.existsSync(`./uploads/${req.id}/${filename}`)){
+        res.sendFile(filename,{root:`./uploads/${req.id}`});
     }
     else{
         res.status(400).json({error:"file not found"});

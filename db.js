@@ -29,7 +29,7 @@ const getUserCred = async (username)=>{
     }
     try{
         const db = client.db('diary');
-        let result = await db.collection('users').findOne({"cred.username":username},{projection:{_id:0,settings:0,entries:0}});
+        let result = await db.collection('users').findOne({"cred.username":username},{projection:{settings:0,entries:0}});
         return result;
     }
     catch(err){
