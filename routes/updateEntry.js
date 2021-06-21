@@ -10,7 +10,7 @@ router.post("/",validateToken,async (req,res)=>{
             date:req.body.date
         };
         let result = await updateEntry(req.username,data);
-        res.send(result);
+        res.json({error:"Updated entry"});
     }
     catch(err){
         res.status(400).json(err);

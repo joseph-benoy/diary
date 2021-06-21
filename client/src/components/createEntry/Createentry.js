@@ -85,7 +85,6 @@ const CreateEntry = ()=>{
                     data:value,
                     date:new Date().toLocaleDateString()
                 });
-                console.log(result.data);
             }
             catch(err){
                 console.error(err);
