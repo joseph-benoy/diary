@@ -86,6 +86,7 @@ const CreateEntry = ()=>{
     useEffect(async ()=>{
         try{
           let result = await axios.get("/getToday");
+          console.log(result);
           setValue(result.data.data);
           setTitle(result.data.title);
         }
@@ -100,7 +101,7 @@ const CreateEntry = ()=>{
                     <h2>Today's entry</h2>
                 </div>
                 <div className="col-lg-7">
-                    <input type="text" id="title" onChange={(e)=>{setTitle(e.target.value)}} className="form-control" placeholder="Title"/>
+                    <input type="text" id="title" value={title} onChange={(e)=>{setTitle(e.target.value)}} className="form-control" placeholder="Title"/>
                 </div>
                 <div className="col-1">
                     <button className="saveBtn" onClick={saveEntry}>Save</button>

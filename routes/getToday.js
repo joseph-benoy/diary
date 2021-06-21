@@ -8,8 +8,8 @@ const {decode} = require('../encryption');
 router.get("/",validateToken,async (req,res)=>{
     try{
         let result = await getToday(req.username);
-        if(!result.title||result.title===""){
-            res.status(400).json({error:"No entry"});
+        if(!result.title){
+            res.json({title:"",data:"",date:""});
         }
         res.json(result);
     }

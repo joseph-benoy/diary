@@ -68,11 +68,16 @@ const getToday = async(username)=>{
     }
     try{
         const db = client.db('diary');
-        let result = await db.collection('users').findOne({"cred.username":username,"entries.date":new Date().toLocaleDateString()},{projection:{_id:0,"entries.$":1}});
+        let date = new Date().toLocaleDateString("en-GB", { // you can use undefined as first argument
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit",
+          });
+        let result = await db.collection('users').findOne({"cred.username":username,"entries.date":date},{projection:{_id:0,"entries.$":1}});
         return result.entries[0];
     }
     catch(err){
-        return err;
+        return {};
     }
     finally{
         client.close();
