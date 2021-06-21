@@ -77,6 +77,5 @@ app.all("*",(req,res)=>{
     });
 });
 app.listen(3001,()=>{
-    console.clear();
     console.log("Server started");
 });

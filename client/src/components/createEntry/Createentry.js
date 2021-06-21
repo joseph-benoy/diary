@@ -1,4 +1,4 @@
-import React, { useState,useMemo } from "react";
+import React, { useState,useMemo,useEffect } from "react";
 import ReactQuill, { Quill } from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import './Createentry.scss';
@@ -83,6 +83,16 @@ const CreateEntry = ()=>{
             }
         }
     }
+    useEffect(async ()=>{
+        try{
+          let result = await axios.get("/getToday");
+          setValue(result.data.data);
+          setTitle(result.data.title);
+        }
+        catch(err){
+            console.error(err);
+        }
+    });
     return(
         <div className="container-fluid">
             <div className="row topbar">

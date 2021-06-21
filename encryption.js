@@ -9,9 +9,10 @@ const encode = (text)=>{
     return encrypted;
 }
 
-const decode = ()=>{
+const decode = (encodedText)=>{
+    const iv = crypto.randomBytes(16); // generate different ciphertext everytime
     const decipher = crypto.createDecipheriv(algorithm, key, iv);
-    var decrypted = decipher.update(encrypted, 'hex', 'utf8') + decipher.final('utf8'); //deciphered text
+    var decrypted = decipher.update(encodedText, 'hex', 'utf8') + decipher.final('utf8'); //deciphered text 
     return decrypted;
 }
 

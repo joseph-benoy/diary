@@ -2,6 +2,7 @@ let router = require('express').Router();
 const bcrypt = require('bcrypt');
 const {saveEntry} = require('../db');
 const { validateToken} = require('../jwt');
+const {encode} = require('../encryption');
 
 router.post("/",validateToken,async (req,res)=>{
     if(req.body.title===""){
@@ -15,11 +16,9 @@ router.post("/",validateToken,async (req,res)=>{
     }
     else{
         try{
-            let titleEncoded = await bcrypt.hash(req.body.title,10);
-            let dataEncoded = await bcrypt.hash(req.body.data,10);
             let data = {
-                title:titleEncoded,
-                data:dataEncoded,
+                title:req.body.title,
+                data:req.body.data,
                 date:req.body.date
             };
             let result = await saveEntry(req.username,data);
