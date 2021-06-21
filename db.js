@@ -61,7 +61,24 @@ const saveEntry = async (username,data)=>{
         client.close();
     }
 }
+const getToday = async()=>{
+    const client = await mongoClient.connect(url,{ useNewUrlParser: true ,useUnifiedTopology: true});
+    if(!client){
+        return;
+    }
+    try{
+        const db = client.db('diary');
+        let result = await db.collection("users").find();
+        return result;
+    }
+    catch(err){
+        return err;
+    }
+    finally{
+        client.close();
+    }
+}
 
 
 
-module.exports = {createUser,getUserCred,saveEntry};
+module.exports = {createUser,getUserCred,saveEntry,getToday};

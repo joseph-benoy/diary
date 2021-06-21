@@ -74,7 +74,7 @@ const CreateEntry = ()=>{
                 let result = await axios.post("/saveentry",{
                     title:title,
                     data:value,
-                    date:Date.now()
+                    date:new Date().toLocaleDateString()
                 });
                 console.log(result.data);
             }
