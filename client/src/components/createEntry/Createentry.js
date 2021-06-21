@@ -60,6 +60,7 @@ const CreateEntry = ()=>{
         }
       }), []);
     const [value, setValue] = useState('');
+    let test = "";
     const saveEntry = async ()=>{
         if(title===""){
             let element = document.getElementById('title');
@@ -93,7 +94,7 @@ const CreateEntry = ()=>{
         catch(err){
             console.error(err);
         }
-    });
+    },[]);
     return(
         <div className="container-fluid">
             <div className="row topbar">
