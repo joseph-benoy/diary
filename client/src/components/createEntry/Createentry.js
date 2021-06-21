@@ -13,6 +13,7 @@ var quillObj = {};
 
 const CreateEntry = ()=>{
     const [title,setTitle] = useState('');
+    const [status,setStatus] = useState('');
     const selectLocalImage = ()=>{
         let input = document.createElement("input");
         input.setAttribute('type','file');
@@ -71,8 +72,15 @@ const CreateEntry = ()=>{
             let element = document.getElementById('title');
             element.style = "border-color:#ced4da";
             element.setAttribute('placeholder','Title');
+            var endpoint = "";
+            if(status==="update"){
+                endpoint = "/updateEntry";
+            }
+            else{
+                endpoint = "/saveentry";
+            }
             try{
-                let result = await axios.post("/saveentry",{
+                let result = await axios.post(endpoint,{
                     title:title,
                     data:value,
                     date:new Date().toLocaleDateString()
@@ -90,6 +98,12 @@ const CreateEntry = ()=>{
           console.log(result);
           setValue(result.data.data);
           setTitle(result.data.title);
+          if(result.data.data===""){
+              setStatus("save");
+          }
+          else{
+              setStatus("update");
+          }
         }
         catch(err){
             console.error(err);
@@ -105,7 +119,7 @@ const CreateEntry = ()=>{
                     <input type="text" id="title" value={title} onChange={(e)=>{setTitle(e.target.value)}} className="form-control" placeholder="Title"/>
                 </div>
                 <div className="col-1">
-                    <button className="saveBtn" onClick={saveEntry}>Save</button>
+                    <button className="saveBtn" onClick={saveEntry}>{status}</button>
                 </div>
             </div>
             <div className="row" style={{marginBottom:"2vh"}}>
