@@ -83,7 +83,37 @@ const getToday = async(username)=>{
         client.close();
     }
 }
+const updateEntry = async (username,data)=>{
+    const client = await mongoClient.connect(url,{ useNewUrlParser: true ,useUnifiedTopology: true});
+    if(!client){
+        return;
+    }
+    try{
+        const db = client.db('diary');
+        let date = new Date().toLocaleDateString("en-GB", { // you can use undefined as first argument
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit",
+          });
+          const query = {
+              $and:[{"cred.username":username},{"entries.date":date}]
+          };
+          const value = {
+            $set:{
+                "entries.0.title":data.title,
+                "entries.0.data":data.data
+            }
+          };
+        let entries = await db.collection('users').updateOne(query,value);
+        return result;
+    }
+    catch(err){
+        return err;
+    }
+    finally{
+        client.close();
+    }
+}
 
 
-
-module.exports = {createUser,getUserCred,saveEntry,getToday};
+module.exports = {createUser,getUserCred,saveEntry,getToday,updateEntry};

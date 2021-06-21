@@ -2,7 +2,6 @@ let router = require('express').Router();
 const bcrypt = require('bcrypt');
 const {getToday} = require('../db');
 const { validateToken} = require('../jwt');
-const {decode} = require('../encryption');
 
 
 router.get("/",validateToken,async (req,res)=>{
