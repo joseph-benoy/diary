@@ -11,7 +11,7 @@ let loginRouter = require('./login.js');
 const { validateToken } = require('../jwt');
 let addEntryImg = require('./addEntryImg');
 let saveEntryRouter = require('./saveEntry');
-
+let getTodayRouter = require('./getToday');
 
 
 //express configuration
@@ -23,7 +23,7 @@ app.use('/registerac',registerRouter);
 app.use('/login',loginRouter);
 app.use('/addEntryImg',addEntryImg);
 app.use('/saveentry',saveEntryRouter);
-
+app.use('/gettoday',getTodayRouter);
 
 
 

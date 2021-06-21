@@ -61,15 +61,15 @@ const saveEntry = async (username,data)=>{
         client.close();
     }
 }
-const getToday = async()=>{
+const getToday = async(username)=>{
     const client = await mongoClient.connect(url,{ useNewUrlParser: true ,useUnifiedTopology: true});
     if(!client){
         return;
     }
     try{
         const db = client.db('diary');
-        let result = await db.collection("users").find();
-        return result;
+        let result = await db.collection('users').findOne({"cred.username":username,"entries.date":new Date().toLocaleDateString()},{projection:{_id:0,"entries.$":1}});
+        return result.entries[0];
     }
     catch(err){
         return err;
