@@ -13,6 +13,9 @@ let addEntryImg = require('./addEntryImg');
 let saveEntryRouter = require('./saveEntry');
 let getTodayRouter = require('./getToday');
 let updateEntryRouter = require('./updateEntry');
+const getEntryByDateRouter = require('./getEntryByDate');
+
+
 
 //express configuration
 var app = express();
@@ -25,7 +28,7 @@ app.use('/addEntryImg',addEntryImg);
 app.use('/saveentry',saveEntryRouter);
 app.use('/gettoday',getTodayRouter);
 app.use('/updateEntry',updateEntryRouter);
-
+app.use('/getentrybydate',getEntryByDateRouter);
 
 
 app.get('/dashboard',validateToken,(req,res)=>{

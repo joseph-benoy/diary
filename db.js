@@ -114,6 +114,26 @@ const updateEntry = async (username,data)=>{
         client.close();
     }
 }
+const getEntryByDate = async (username,date)=>{
+    const client = await mongoClient.connect(url,{ useNewUrlParser: true ,useUnifiedTopology: true});
+    if(!client){
+        return;
+    }
+    try{
+        const db = client.db('diary');
+        let result = await db.collection('users').findOne({"cred.username":username,"entries.date":date},{projection:{_id:0,"entries.$":1}});
+        return result.entries[0];
+    }
+    catch(err){
+        return {};
+    }
+    finally{
+        client.close();
+    }
+}
 
 
-module.exports = {createUser,getUserCred,saveEntry,getToday,updateEntry};
+
+
+
+module.exports = {createUser,getUserCred,saveEntry,getToday,updateEntry,getEntryByDate};
