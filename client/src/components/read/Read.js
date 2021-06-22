@@ -3,8 +3,6 @@ import Calendar from 'react-calendar';
 import { useState } from "react";
 import axios from 'axios';
 
-
-
 const Read = ()=>{
     const [entryTitle,setEntryTitle] = useState('');
     const [entryData,setEntryData] = useState('');
