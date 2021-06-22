@@ -4,6 +4,7 @@ import 'react-quill/dist/quill.snow.css';
 import './Createentry.scss';
 import DiaryHeader from "../diaryHeader/DiaryHeader";
 import axios from 'axios';
+import MessageModal from "../messageModal/Messagemodal";
 
 var quillObj = {};
 
@@ -85,6 +86,14 @@ const CreateEntry = ()=>{
                     data:value,
                     date:new Date().toLocaleDateString()
                 });
+                if(status==="update"){
+                    document.getElementById("updatedEntryModal").style.display = "block";
+                    document.getElementById("updatedEntryModal").classList.add("show");
+                }
+                else{
+                    document.getElementById("savedEntryModal").style.display = "block";
+                    document.getElementById("savedEntryModal").classList.add("show");
+                }
             }
             catch(err){
                 console.error(err);
@@ -109,6 +118,9 @@ const CreateEntry = ()=>{
         }
     },[]);
     return(
+        <>
+        <MessageModal id="savedEntryModal" title="Saved entry!" body="Today's dairy entry is saved successfully!"/>
+        <MessageModal id="updatedEntryModal" title="Updated entry!" body="Today's dairy entry is updated successfully!"/>
         <div className="container-fluid">
             <div className="row topbar">
                 <div className="col-lg-3">
@@ -128,6 +140,7 @@ const CreateEntry = ()=>{
                 <ReactQuill  ref={(el)=>{quillObj=el}}  placeholder="Enter something...." theme="snow" value={value}   modules={modules} onChange={setValue}/>
             </div>
         </div>
+        </>
     );
 }
 
