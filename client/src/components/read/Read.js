@@ -16,13 +16,11 @@ const Read = ()=>{
     const getEntryByDate = async ()=>{
         try{
             let result = await axios.post('/getentrybydate',{date:date});
-            console.log(date);
             if(result.data.title!=""&&result.data.data!=""){
                 setEntryTitle(result.data.title);
                 setEntryData(result.data.data);
                 document.getElementById('dataView').innerHTML = result.data.data;
                 let arr = date.split("/");
-                console.log(arr);
                 document.getElementById('dateView').innerHTML = new Date(arr[2],arr[1]-1,arr[0]).toLocaleDateString([],{ weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
             }
             else{
