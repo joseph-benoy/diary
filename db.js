@@ -100,8 +100,8 @@ const updateEntry = async (username,data)=>{
           };
           const value = {
             $set:{
-                "entries.0.title":data.title,
-                "entries.0.data":data.data
+                "entries.$.title":data.title,
+                "entries.$.data":data.data
             }
           };
         let entries = await db.collection('users').updateOne(query,value);

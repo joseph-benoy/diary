@@ -25,6 +25,7 @@ const Read = ()=>{
             else{
                 setEntryTitle('Nothing found!');
                 setEntryData('');
+                document.getElementById('dataView').innerHTML ="";
             }
         }
         catch(err){
@@ -42,7 +43,7 @@ const Read = ()=>{
         year: "numeric",
         month: "2-digit",
         day: "2-digit",
-      }))} className="form-control" max={new Date().toISOString().split("T")[0]} />
+      }))} className="form-control" max={new Date().toLocaleDateString()} />
                 </div>
                 <div className="col-lg-2">
                     <button className="saveBtn" onClick={getEntryByDate}>Read</button>
@@ -52,7 +53,7 @@ const Read = ()=>{
                 <div className="col-lg-12">
                     <hr/>
                     <h2 style={{textAlign:'center'}}>{entryTitle}</h2>
-                    <h6 style={{textAlign:'center'}}>{date}</h6>
+                    <h6 style={{textAlign:'center'}} id="dateView">{date}</h6>
                     <hr/>
                 </div>
             </div>

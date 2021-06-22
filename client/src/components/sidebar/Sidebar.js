@@ -29,7 +29,6 @@ const Sidebar = ()=>{
                     <Link to="/dashboard/home" id="home"><i className="bi bi-house-door"></i></Link>
                     <Link to="/dashboard/createentry" id="createentry"><i className="bi bi-file-earmark-plus"></i></Link>
                     <Link to="/dashboard/read" id="read"><i className="bi bi-book"></i></Link>
-                    <Link to="/dashboard/memories" id="memories"><i className="bi bi-bookmark-heart"></i></Link>
                     <Link to="/dashboard/settings" id="settings"><i className="bi bi-gear"></i></Link>
                     <Link to="" onClick={logout}><i className="bi bi-box-arrow-left"></i></Link>
                 </div>

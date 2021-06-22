@@ -80,6 +80,7 @@ const CreateEntry = ()=>{
             else{
                 endpoint = "/saveentry";
             }
+            console.log(endpoint+" : "+status)
             try{
                 let result = await axios.post(endpoint,{
                     title:title,
