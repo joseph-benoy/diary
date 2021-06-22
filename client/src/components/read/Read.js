@@ -54,7 +54,7 @@ const Read = ()=>{
                 <div className="col-lg-12">
                     <hr/>
                     <h2 style={{textAlign:'center'}}>{entryTitle}</h2>
-                    <h6 style={{textAlign:'center'}} id="dateView"></h6>
+                    <h6 style={{textAlign:'center'}} id="dateView">Search with a date</h6>
                     <hr/>
                 </div>
             </div>
