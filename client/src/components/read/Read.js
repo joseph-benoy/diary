@@ -27,6 +27,7 @@ const Read = ()=>{
                 setEntryTitle('Nothing found!');
                 setEntryData('');
                 document.getElementById('dataView').innerHTML ="";
+                document.getElementById('dateView').innerHTML ="";                
             }
         }
         catch(err){
