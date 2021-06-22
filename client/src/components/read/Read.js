@@ -21,6 +21,9 @@ const Read = ()=>{
                 setEntryTitle(result.data.title);
                 setEntryData(result.data.data);
                 document.getElementById('dataView').innerHTML = result.data.data;
+                let arr = date.split("/");
+                console.log(arr);
+                document.getElementById('dateView').innerHTML = new Date(arr[2],arr[1]-1,arr[0]).toLocaleDateString([],{ weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
             }
             else{
                 setEntryTitle('Nothing found!');
@@ -53,7 +56,7 @@ const Read = ()=>{
                 <div className="col-lg-12">
                     <hr/>
                     <h2 style={{textAlign:'center'}}>{entryTitle}</h2>
-                    <h6 style={{textAlign:'center'}} id="dateView">{date}</h6>
+                    <h6 style={{textAlign:'center'}} id="dateView"></h6>
                     <hr/>
                 </div>
             </div>
