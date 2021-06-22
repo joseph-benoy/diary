@@ -1,0 +1,16 @@
+.saveBtn{
+    background-color: #7952b3;
+    color: white;
+    padding: 1.1vh 2.1vw;
+    font-weight: bold;
+    outline: none;
+    border-radius: 7px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    border: none;
+    position:relative;
+    left: 85%;
+}
+.saveBtn:hover{
+    background-color: #9678c4;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+}
