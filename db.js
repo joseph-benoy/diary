@@ -131,9 +131,4 @@ const getEntryByDate = async (username,date)=>{
         client.close();
     }
 }
-
-
-
-
-
 module.exports = {createUser,getUserCred,saveEntry,getToday,updateEntry,getEntryByDate};

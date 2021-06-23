@@ -14,7 +14,7 @@ let saveEntryRouter = require('./saveEntry');
 let getTodayRouter = require('./getToday');
 let updateEntryRouter = require('./updateEntry');
 const getEntryByDateRouter = require('./getEntryByDate');
-
+const getCredRouter = require('./getcred');
 
 
 //express configuration
@@ -29,7 +29,7 @@ app.use('/saveentry',saveEntryRouter);
 app.use('/gettoday',getTodayRouter);
 app.use('/updateEntry',updateEntryRouter);
 app.use('/getentrybydate',getEntryByDateRouter);
-
+app.use('/getcred',getCredRouter);
 
 app.get('/dashboard',validateToken,(req,res)=>{
     res.send("<h1>Dashboard</h1>");
