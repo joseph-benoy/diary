@@ -21,9 +21,9 @@ const Settings = ()=>{
     useEffect(async ()=>{
         try{
             let result = await axios.get('/getcred');
+            console.log(result);
             if(result.data.username!=""){
                 setUsername(result.data.username);
-                setPassword(result.data.password);
                 setFullname(result.data.fullname);
             }
         }
