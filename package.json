@@ -4,9 +4,8 @@
   "description": "Personal day-to-day diary application",
   "main": "index.js",
   "scripts": {
-    "start": "node routes/index.js",
     "start-dev": "nodemon routes/index.js",
-    "server": "concurrently \"npm start-dev\" \" cd client && npm start\""
+    "start": "concurrently \"npm start-dev\" \" cd client && npm start\""
   },
   "repository": {
     "type": "git",
